@@ -1,0 +1,81 @@
+CREATE TABLE Players (
+    PID int,
+    PNAME varchar(255),
+    RUNS INT,
+    GENDER varchar(1),
+    DOB DATE
+);
+select * from PLAYERS;
+
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (1 , "Adarsh Tiwari" , 13000,"M" , TO_DATE('17/12/2015', 'DD/MM/YYYY'));
+
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (2 , "VIRAT" , 7000,"M" , '1992-03-09');
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (3 , "SACHIN" , 94000,"M" , '2015-04-04');
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (4 , "KAPIL" , 55000,"M" , '1954-08-29');
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (5 , "MS DHONI" , 62000,"M" , '1978-07-07');
+
+INSERT INTO PLAYERS (PID, PName, RUNS, GENDER, DOB)
+VALUES (5 , "Yuvraj Singh" , 89000,"M" , '1978-09-08');
+select * from players where runs=13000;
+
+
+ALTER TABLE players
+ADD PRIMARY KEY (PID);
+
+DELETE FROM PLAYERS WHERE PNAME= "Yuvraj Singh";
+yyyy-mm-dd
+
+primary key is the coloumn that is unique for each row and it cannot contain duplicate value. These primary key is used to give unique identity to every persons
+
+CREATE TABLE Address (
+    AID int,
+    AREA varchar(255),
+    HOUSENUMBER INT,
+    CITY varchar(10),
+    STATE varchar(255)
+);
+ALTER TABLE ADDRESS MODIFY HOUSENUMBER VARCHAR(10);
+
+ALTER TABLE players
+ADD  AID INT;
+
+INSERT INTO Address (AID, AREA, HOUSENUMBER, CITY, STATE)
+VALUES (1 , "AREA 8 " , "5C","CHIT" ,"WEST BENGAL");
+
+
+INSERT INTO Address (AID, AREA, HOUSENUMBER, CITY, STATE)
+VALUES (2 , "AREA 4 " , "6/4C","KOL" ,"WEST BENGAL");
+
+
+INSERT INTO Address (AID, AREA, HOUSENUMBER, CITY, STATE)
+VALUES (3 , "AREA 3 " , "3C","MUM" ,"MAHARASTRA");
+
+delete from ADDRESS WHERE AREA="AREA 3 ";
+
+update players set AID=1 where PID=1;
+
+update players set AID=2 where PID=2;
+
+update players set AID=3 where PID=3;
+
+update players set AID=2 where PID=4;
+
+update players set AID=1 where PID=5;
+
+alter table address 
+add PRIMARY KEY(AID)
+
+alter table PLAYERS 
+add FOREIGN KEY(AID) REFERENCES ADDRESS(AID);
+
+update players set AID=5 where PID=5;
